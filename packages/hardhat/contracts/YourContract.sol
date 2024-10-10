@@ -5,23 +5,20 @@ pragma solidity >=0.8.0 <0.9.0;
 import "hardhat/console.sol";
 
 contract OriginInformationContract {
-    // Variables de estado
-    address public immutable PropietarioDelContrato; // Propietario del contrato
-    uint256 public TotalDeProductos; // Contador de productos
-    mapping(uint256 => Producto) public Productos; // Mapeo de productos
+    address public immutable PropietarioDelContrato; 
+    uint256 public TotalDeProductos; 
+    mapping(uint256 => Producto) public Productos; 
 
-    // Estructura para almacenar la información del producto
     struct Producto {
-        uint256 ID; // Identificación del producto
-        string NombreDelProducto; // Nombre del producto
-        string NombreDelFabricante; // Nombre del fabricante
-        string PaisDeOrigen; // País de origen
-        string InformacionAdicional; // Información adicional sobre el producto
-        string FechaDeCaducidad; // Fecha de caducidad del producto
-        address PropietarioDelProducto; // Dueño del producto
+        uint256 ID;
+        string NombreDelProducto;
+        string NombreDelFabricante;
+        string PaisDeOrigen;
+        string InformacionAdicional;
+        string FechaDeCaducidad;
+        address PropietarioDelProducto;
     }
 
-    // Eventos
     event ProductoRegistrado(
         uint256 ID,
         string NombreDelProducto,
@@ -34,23 +31,22 @@ contract OriginInformationContract {
 
     // Constructor
     constructor(address _propietarioDelContrato) {
-        PropietarioDelContrato = _propietarioDelContrato; // Inicializar el propietario del contrato
+        PropietarioDelContrato = _propietarioDelContrato;
     }
 
-    // Modificador para verificar si el llamador es el propietario
     modifier soloPropietario() {
         require(msg.sender == PropietarioDelContrato, "No es el propietario del contrato");
         _;
     }
 
     /**
-     * Función para registrar un producto con información de origen.
+     * 
      *
-     * @param _nombreDelProducto (string memory) - Nombre del producto
-     * @param _nombreDelFabricante (string memory) - Nombre del fabricante
-     * @param _paisDeOrigen (string memory) - País de origen del producto
-     * @param _informacionAdicional (string memory) - Información adicional sobre el producto
-     * @param _fechaDeCaducidad (string memory) - Fecha de caducidad del producto
+     * @param _nombreDelProducto (string memory)
+     * @param _nombreDelFabricante (string memory)
+     * @param _paisDeOrigen (string memory)
+     * @param _informacionAdicional (string memory)
+     * @param _fechaDeCaducidad (string memory)
      */
     function registrarProducto(
         string memory _nombreDelProducto,
@@ -80,16 +76,10 @@ contract OriginInformationContract {
         );
     }
 
-    /**
-     * Función que permite al propietario retirar todo el Ether del contrato.
-     */
     function retirarFondos() public soloPropietario {
         (bool success, ) = PropietarioDelContrato.call{ value: address(this).balance }("");
         require(success, "Fallo al enviar Ether");
     }
 
-    /**
-     * Función que permite al contrato recibir ETH.
-     */
     receive() external payable {}
 }
