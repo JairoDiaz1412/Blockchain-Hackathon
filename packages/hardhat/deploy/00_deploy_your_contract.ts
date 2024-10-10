@@ -3,42 +3,49 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { Contract } from "ethers";
 
 /**
- * Deploys a contract named "YourContract" using the deployer account and
- * constructor arguments set to the deployer address
+ * Despliega el contrato llamado "OriginInformationContract" usando la cuenta del desplegador
+ * y los argumentos del constructor establecidos en la dirección del desplegador.
  *
- * @param hre HardhatRuntimeEnvironment object.
+ * @param hre HardhatRuntimeEnvironment objeto.
  */
-const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployOriginInformationContract: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
-    On localhost, the deployer account is the one that comes with Hardhat, which is already funded.
+    En localhost, la cuenta del desplegador es la que viene con Hardhat, que ya está financiada.
 
-    When deploying to live networks (e.g `yarn deploy --network sepolia`), the deployer account
-    should have sufficient balance to pay for the gas fees for contract creation.
+    Al desplegar en redes en vivo (por ejemplo, `yarn deploy --network sepolia`), la cuenta del desplegador
+    debe tener suficiente saldo para pagar las tarifas de gas para la creación del contrato.
 
-    You can generate a random account with `yarn generate` which will fill DEPLOYER_PRIVATE_KEY
-    with a random private key in the .env file (then used on hardhat.config.ts)
-    You can run the `yarn account` command to check your balance in every network.
+    Puedes generar una cuenta aleatoria con `yarn generate`, que llenará DEPLOYER_PRIVATE_KEY
+    con una clave privada aleatoria en el archivo .env (usada luego en hardhat.config.ts).
+    Puedes ejecutar el comando `yarn account` para verificar tu saldo en cada red.
   */
+
+  // Obtener la cuenta del desplegador
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourContract", {
+  // Desplegar el contrato
+  await deploy("OriginInformationContract", {
     from: deployer,
-    // Contract constructor arguments
-    args: [deployer],
+    // Argumentos del constructor del contrato
+    args: ["0xde50DEc17dF03BC7abaC89FE1945b9AE1f4941Fe"], // Se pasa la dirección del desplegador como propietario
     log: true,
-    // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
-    // automatically mining the contract deployment transaction. There is no effect on live networks.
+    // autoMine: se puede pasar a la función de despliegue para acelerar el proceso en redes locales
+    // al minar automáticamente la transacción de despliegue del contrato. No tiene efecto en redes en vivo.
     autoMine: true,
   });
 
-  // Get the deployed contract to interact with it after deploying.
-  const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
-  console.log("👋 Initial greeting:", await yourContract.greeting());
+  // Obtener el contrato desplegado para interactuar con él después del despliegue.
+  const originInformationContract: Contract = await hre.ethers.getContract("OriginInformationContract", deployer);
+  console.log(
+    "👋 Contrato de Información de Origen desplegado con éxito. Total de productos:",
+    await originInformationContract.TotalDeProductos(),
+  );
 };
 
-export default deployYourContract;
+// Exportar la función de despliegue
+export default deployOriginInformationContract;
 
-// Tags are useful if you have multiple deploy files and only want to run one of them.
-// e.g. yarn deploy --tags YourContract
-deployYourContract.tags = ["YourContract"];
+// Las etiquetas son útiles si tienes múltiples archivos de despliegue y solo quieres ejecutar uno de ellos.
+// Por ejemplo, `yarn deploy --tags OriginInformationContract`
+deployOriginInformationContract.tags = ["OriginInformationContract"];

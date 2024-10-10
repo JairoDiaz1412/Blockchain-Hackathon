@@ -14,29 +14,33 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
+            <span className="block text-2xl mb-2">Bienvenido a</span>
+            <span className="block text-4xl font-bold">Transparencia de Cadena de Suministro</span>
           </h1>
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
+            <p className="my-2 font-medium">Dirección conectada:</p>
             <Address address={connectedAddress} />
           </div>
 
           <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
+            La transparencia en la cadena de suministro es esencial para garantizar la confianza del consumidor. Permite
+            a los clientes rastrear el origen de los productos, lo que puede influir en sus decisiones de compra. Con la
+            creciente demanda de sostenibilidad y ética en la producción, las empresas deben proporcionar información
+            clara y verificable sobre sus productos.
           </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
+
+          <p className="text-center text-lg mt-4">
+            La tecnología blockchain es una herramienta poderosa para lograr esta transparencia. A través de contratos
+            inteligentes, se puede registrar y verificar la información sobre cada etapa del proceso de producción y
+            distribución. Esto incluye el origen de los materiales, el proceso de fabricación y la entrega final al
+            consumidor. Con datos inmutables, se reduce el riesgo de fraudes y se asegura que la información sea
+            accesible y verificable por todas las partes interesadas.
+          </p>
+
+          <p className="text-center text-lg mt-4">
+            Este proyecto tiene como objetivo implementar un sistema basado en blockchain que permita a los consumidores
+            acceder a información detallada sobre sus productos, promoviendo la responsabilidad y la transparencia en la
+            industria. Al hacerlo, esperamos fomentar prácticas comerciales más éticas y sostenibles.
           </p>
         </div>
 
@@ -45,21 +49,21 @@ const Home: NextPage = () => {
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
               <p>
-                Tinker with your smart contract using the{" "}
+                Experimenta con tu contrato inteligente usando la{" "}
                 <Link href="/debug" passHref className="link">
-                  Debug Contracts
+                  pestaña de Depuración de Contratos
                 </Link>{" "}
-                tab.
+                .
               </p>
             </div>
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
               <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
               <p>
-                Explore your local transactions with the{" "}
+                Explora tus transacciones locales con la{" "}
                 <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
+                  pestaña del Explorador de Bloques
                 </Link>{" "}
-                tab.
+                .
               </p>
             </div>
           </div>

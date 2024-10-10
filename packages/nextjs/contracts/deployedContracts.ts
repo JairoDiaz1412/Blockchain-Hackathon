@@ -4,6 +4,449 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    OriginInformationContract: {
+      address: "0x09635F643e140090A9A8Dcd712eD6285858ceBef",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_propietarioDelContrato",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "ID",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "NombreDelProducto",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "NombreDelFabricante",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "PaisDeOrigen",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "InformacionAdicional",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "FechaDeCaducidad",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "PropietarioDelProducto",
+              type: "address",
+            },
+          ],
+          name: "ProductoRegistrado",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "Productos",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "ID",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "NombreDelProducto",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "NombreDelFabricante",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "PaisDeOrigen",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "InformacionAdicional",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "FechaDeCaducidad",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "PropietarioDelProducto",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "PropietarioDelContrato",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "TotalDeProductos",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_nombreDelProducto",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_nombreDelFabricante",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_paisDeOrigen",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_informacionAdicional",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "_fechaDeCaducidad",
+              type: "string",
+            },
+          ],
+          name: "registrarProducto",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "retirarFondos",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    YourContract: {
+      address: "0x59b670e9fA9D0A427751Af201D676719a970857b",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_contractOwner",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "updater",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "newGreeting",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "bool",
+              name: "isPremiumUser",
+              type: "bool",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "GreetingUpdated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "productName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "manufacturerName",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "expirationDate",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "productOwner",
+              type: "address",
+            },
+          ],
+          name: "ProductAdded",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "productName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "manufacturerName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "expirationDate",
+              type: "string",
+            },
+          ],
+          name: "addProduct",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "contractOwner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "greetingMessage",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "isPremiumUser",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "products",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "productName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "manufacturerName",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "expirationDate",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "productOwner",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalGreetings",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalProducts",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "newGreeting",
+              type: "string",
+            },
+          ],
+          name: "updateGreeting",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "userGreetingCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdrawFunds",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
