@@ -16,11 +16,11 @@ type HeaderMenuLink = {
 
 export const menuLinks: HeaderMenuLink[] = [
   {
-    label: "Home",
+    label: "Inicio",
     href: "/",
   },
   {
-    label: "Debug Contracts",
+    label: "Contractos Inteligentes",
     href: "/debug",
     icon: <BugAntIcon className="h-4 w-4" />,
   },
@@ -51,7 +51,6 @@ export const HeaderMenuLinks = () => {
     </>
   );
 };
-
 /**
  * Site header
  */
@@ -89,12 +88,20 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
-          <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
+          <div className="flex relative w-20 h-20">
+            {" "}
+            {/* Ajusta el tamaño del logo aquí */}
+            <Image
+              alt="Nuevo logo"
+              className="cursor-pointer object-contain"
+              fill
+              src="/nuevo-logo.png"
+              quality={100} // Aumenta la calidad de la imagen
+            />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-ETH</span>
-            <span className="text-xs">Ethereum dev stack</span>
+            <span className="font-bold text-lg leading-tight">SuministroApp</span> {/* Aumenta el tamaño aquí */}
+            <span className="text-xs">Transparencia y Calidad</span>
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">

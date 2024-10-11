@@ -2,9 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { hardhat } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
-import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import { Faucet } from "~~/components/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { useGlobalState } from "~~/services/store/store";
@@ -35,7 +33,7 @@ export const Footer = () => {
                 <Faucet />
                 <Link href="/blockexplorer" passHref className="btn btn-primary btn-sm font-normal gap-1">
                   <MagnifyingGlassIcon className="h-4 w-4" />
-                  <span>Block Explorer</span>
+                  <span>Mirar Transacciones</span>
                 </Link>
               </>
             )}
@@ -47,23 +45,26 @@ export const Footer = () => {
         <ul className="menu menu-horizontal w-full">
           <div className="flex justify-center items-center gap-2 text-sm w-full">
             <div className="text-center">
-              <a href="https://github.com/scaffold-eth/se-2" target="_blank" rel="noreferrer" className="link">
-                Fork me
+              <a
+                href="https://github.com/JairoDiaz1412/Blockchain-Hackathon"
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                Git Hub
               </a>
             </div>
             <span>·</span>
             <div className="flex justify-center items-center gap-2">
-              <p className="m-0 text-center">
-                Built with <HeartIcon className="inline-block h-4 w-4" /> at
-              </p>
+              <p className="m-0 text-center">Construido con SCAFFOLD-ETH2</p>
+              <span>·</span>
               <a
                 className="flex justify-center items-center gap-1"
-                href="https://buidlguidl.com/"
+                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiQ1OPOkYWJAxXDSDABHQwrBpAQFnoECAwQAQ&url=https%3A%2F%2Fwww.ibm.com%2Fes-es%2Ftopics%2Fblockchain&usg=AOvVaw2KpgBR2bUktiR3UdhtPouW&opi=89978449"
                 target="_blank"
                 rel="noreferrer"
               >
-                <BuidlGuidlLogo className="w-3 h-5 pb-1" />
-                <span className="link">BuidlGuidl</span>
+                <span className="link">Saber mas sobre Blockchain</span>
               </a>
             </div>
             <span>·</span>
